@@ -22,6 +22,11 @@ resource "heroku_app_feature" "log_runtime_metrics" {
   name = "log-runtime-metrics"
 }
 
+resource "heroku_app_feature" "runtime_dyno_metadata" {
+  app  = "${heroku_app.this.name}"
+  name = "runtime-dyno-metadata"
+}
+
 resource "heroku_team_collaborator" "deploy" {
   app         = "${heroku_app.this.name}"
   email       = "${var.deployer}"
